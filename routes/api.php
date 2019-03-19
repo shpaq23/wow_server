@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Http\Request;
-use App\Character;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,12 +15,15 @@ use App\Character;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('characters', 'CharacterController@index');
-Route::get('characters/{character}', 'CharacterController@show');
-Route::post('characters', 'CharacterController@store');
-Route::put('characters/{character}', 'CharacterController@update');
-Route::delete('characters/{character}', 'CharacterController@delete');
 
+Route::group(['middleware' => 'auth:api'], function(){
+    Route::get('characters', 'CharacterController@index');
+    Route::get('characters/{character}', 'CharacterController@show');
+    Route::post('characters', 'CharacterController@store');
+    Route::put('characters/{character}', 'CharacterController@update');
+    Route::delete('characters/{character}', 'CharacterController@delete');
+});
 
 Route::post('register', 'Auth\RegisterController@register');
 Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout');

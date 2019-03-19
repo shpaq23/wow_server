@@ -19,10 +19,12 @@ class CreateCharactersTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable(false)->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->string('nick_name', 25)->nullable(false);
+            $table->string('nick_name', 25)->nullable(false)->unique();
             $table->enum('race', ['human','dwarf', 'gnome', 'night elf', 'orc', 'troll', 'tauren', 'undead'])->nullable(false);
             $table->enum('class', ['warrior', 'mage', 'rogue', 'hunter', 'warlock', 'druid', 'shaman', 'paladin', 'priest'])->nullable(false);
             $table->unsignedTinyInteger('level')->nullable(false)->default(1);
+            $table->boolean('active')->nullable(false)->default(true);
+
             $table->timestamps();
         });
     }
