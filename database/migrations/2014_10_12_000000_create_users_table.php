@@ -20,6 +20,8 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('type', ['admin', 'player'])->nullable(false);
+            $table->timestamp('jwt_token_expired_date')->nullable();
+            $table->string('jwt_token', 510)->unique()->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

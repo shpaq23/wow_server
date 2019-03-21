@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Character;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class CharacterController extends Controller
 {
@@ -12,7 +11,7 @@ class CharacterController extends Controller
 
     public function __construct()
     {
-        $this->loggedUser = Auth::guard('api')->user();
+        $this->loggedUser = auth()->user();
     }
 
     public function index()
