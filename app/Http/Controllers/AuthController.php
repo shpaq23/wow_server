@@ -46,7 +46,9 @@ class AuthController extends Controller
      */
     public function logout()
     {
+        $this->updateUser(null, true);
         auth()->logout();
+
 
         return response()->json(['message' => 'Successfully logged out']);
     }
@@ -71,17 +73,13 @@ class AuthController extends Controller
     protected function respondWithToken($token)
     {
         $this->updateUser($token);
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * env("JWT_TTL", 60)
-        ]);
+        return $this->me();
     }
     protected function updateUser($token, $logout = false)
     {
         if($logout){
             auth()->user()->jwt_token = null;
-            auth()->user()->jwt_token_expired = null;
+            auth()->user()->jwt_token_expired_date = null;
         }else{
             auth()->user()->jwt_token = $token;
             auth()->user()->jwt_token_expired_date = date("Y-m-d H:i:s", now()->timestamp + auth()->factory()->getTTL() * env("JWT_TTL", 60));

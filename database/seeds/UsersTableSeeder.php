@@ -20,19 +20,22 @@ class UsersTableSeeder extends Seeder
 
 
         User::create([
-            'name' => 'admin',
+            'first_name' => 'Michał',
+            'last_name' => 'Szpak',
             'email' => 'shpaq23@gmail.com',
             'password' => $password,
             'type' => 'admin'
         ]);
         User::create([
-            'name' => 'zuzelek11',
+            'first_name' => 'Zuzanna',
+            'last_name' => 'Olszewska',
             'email' => 'zuzelek11@gmail.com',
             'password' => $password,
             'type' => 'player'
         ]);
         User::create([
-            'name' => 'zamzam144',
+            'first_name' => 'Aleksander',
+            'last_name' => 'Stopiński',
             'email' => 'stopina32@gmail.com',
             'password' => $password,
             'type' => 'player'

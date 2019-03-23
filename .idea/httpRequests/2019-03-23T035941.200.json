@@ -1,0 +1,12 @@
+{
+  "id": 1,
+  "first_name": "Michał",
+  "last_name": "Szpak",
+  "email": "shpaq23@gmail.com",
+  "type": "admin",
+  "jwt_token_expired_date": "2019-03-23 16:59:41",
+  "jwt_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9yZWZyZXNoIiwiaWF0IjoxNTUzMzUzMTA4LCJleHAiOjE1NTMzNTY3ODEsIm5iZiI6MTU1MzM1MzE4MSwianRpIjoiUlNBdnhQeHdodHp5UHEzayIsInN1YiI6MSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.kbHV5E25BqKvwijDAxA8dWuuUpJsMx5ErHfPUmLFQw4",
+  "created_at": "2019-03-23 15:44:08",
+  "updated_at": "2019-03-23 15:59:41",
+  "api_token": null
+}
