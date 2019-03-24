@@ -20,6 +20,7 @@ class AuthController extends Controller
      */
     public function login()
     {
+        /// TEST COMMIT
         $credentials = request(['email', 'password']);
 
         if (! $token = auth()->attempt($credentials)) {
