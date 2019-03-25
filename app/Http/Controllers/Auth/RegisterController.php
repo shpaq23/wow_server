@@ -56,7 +56,7 @@ class RegisterController extends Controller
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
             'creation_password' => [
                 'required',
                 Rule::in([DB::table('register_passwords')->where('active', true)->first()->password])
@@ -73,7 +73,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         DB::table('register_passwords')->where('active', true)->update(['active'=>false, 'updated_at' => now()]);
-        DB::table('register_passwords')->insert(['password' => str_random(60), 'updated_at' => now(), 'created_at' => now()]);
+        DB::table('register_passwords')->insert(['password' => str_random(6), 'updated_at' => now(), 'created_at' => now()]);
 
         return User::create([
             'first_name' => $data['first_name'],

@@ -15,7 +15,7 @@ class CreateRegisterPasswordsTable extends Migration
     {
         Schema::create('register_passwords', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('password',60)->nullable(false);
+            $table->string('password',6)->nullable(false);
             $table->boolean('active')->nullable(false)->default(true);
             $table->timestamps();
         });

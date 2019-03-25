@@ -15,7 +15,7 @@ class RegisterPasswordTableSeeder extends Seeder
         RegisterPassword::truncate();
 
         RegisterPassword::create([
-            'password' => str_random(60),
+            'password' => str_random(6),
         ]);
     }
 }
