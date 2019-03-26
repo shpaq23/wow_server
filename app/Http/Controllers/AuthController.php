@@ -74,7 +74,10 @@ class AuthController extends Controller
     protected function respondWithToken($token)
     {
         $this->updateUser($token);
-        return $this->me();
+        return response()->json([
+            'jwt_token' => $token,
+            'jwt_token_expired_date' => auth()->user()->jwt_token_expired_date
+        ]);
     }
     protected function updateUser($token, $logout = false)
     {
