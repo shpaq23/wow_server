@@ -23,7 +23,12 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::put('characters/{character}', 'CharacterController@update');
     Route::delete('characters/{character}', 'CharacterController@delete');
 });
+/// Images
 
+Route::get('icon/{name}', 'ImageController@getIcon');
+
+
+/// Authentication
 Route::post('register', 'Auth\RegisterController@register');
 
 Route::post('login', 'AuthController@login');

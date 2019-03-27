@@ -73,7 +73,6 @@ class AuthController extends Controller
      */
     protected function respondWithToken($token)
     {
-        // TEST COMMIT
         $this->updateUser($token);
         return response()->json([
             'jwt_token' => $token,
