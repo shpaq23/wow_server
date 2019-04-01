@@ -49,7 +49,7 @@ class CharacterController extends Controller
         $post['user_id'] = $this->loggedUser->id;
         if(Character::where('nick_name', $post['nick_name'])->first()){
             return response()->json([
-                'error' => 'nickname used',
+                'error' => 'Nickname used',
             ], 400);
         }
         $character = Character::create($post);
